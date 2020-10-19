@@ -1,27 +1,6 @@
 import { Injectable } from '@angular/core';
-import {
-  BehaviorSubject,
-  concat,
-  forkJoin,
-  from,
-  merge,
-  Observable,
-  of,
-  ReplaySubject,
-  Subject,
-} from 'rxjs';
-import {
-  buffer,
-  filter,
-  map,
-  publishReplay,
-  refCount,
-  share,
-  shareReplay,
-  skipUntil,
-  take,
-  tap,
-} from 'rxjs/operators';
+import { concat, from, Observable, Subject } from 'rxjs';
+import { map, publishReplay, refCount, share } from 'rxjs/operators';
 import { ApiService } from '../shared/api/api.service';
 import { INITIAL_NOTES } from './data';
 import { Note } from './types';
