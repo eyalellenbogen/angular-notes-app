@@ -1,0 +1,19 @@
+@import "../shared";
+
+.card {
+  border-radius: 5px;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
+  &__top {
+    padding: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: $accent;
+    color: #fff;
+  }
+
+  &__content {
+    padding: 15px;
+    white-space: pre;
+  }
+}

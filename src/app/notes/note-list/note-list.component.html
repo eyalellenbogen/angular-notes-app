@@ -1,0 +1,28 @@
+<div class="notes-header">
+  <button mat-button (click)="addNote()">Add Note</button>
+</div>
+
+<div class="notes-panel">
+  <app-card *ngFor="let note of notes | async">
+    <span role="card-top-left">
+      <b> {{ note.author }}</b>
+    </span>
+    <span role="card-top-right">
+      {{ note.dateCreated | date: "short" }}
+    </span>
+    <div role="card-content">
+      <div>
+        {{ note.content }}
+      </div>
+      <div class="note-actions">
+        <button mat-mini-fab color="primary" (click)="editNote(note)">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-mini-fab (click)="deleteNote(note)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+    </div>
+  </app-card>
+</div>
+<router-outlet></router-outlet>

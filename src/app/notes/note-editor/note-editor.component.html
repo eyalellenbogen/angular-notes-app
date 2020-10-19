@@ -1,0 +1,38 @@
+<h2 mat-dialog-title>
+  <span *ngIf="!note.id">Add Note</span>
+  <span *ngIf="note.id">Edit Note</span>
+</h2>
+<form (ngSubmit)="ok()" #noteForm="ngForm">
+  <mat-dialog-content>
+    <p>
+      <mat-form-field appearance="fill">
+        <mat-label>Author</mat-label>
+        <input
+          matInput
+          [(ngModel)]="note.author"
+          name="author"
+          required
+          #author="ngModel"
+        />
+        <mat-error *ngIf="author.invalid && noteForm.touched">nooo</mat-error>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="fill">
+        <mat-label>Content</mat-label>
+        <textarea
+          matInput
+          [(ngModel)]="note.content"
+          required
+          name="content"
+          #content="ngModel"
+        ></textarea>
+        <mat-error *ngIf="content.invalid && noteForm.touched">nooo</mat-error>
+    </mat-form-field>
+    </p>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-button (click)="close()">Cancel</button>
+    <button mat-raised-button color="accent" type="submit" [disabled]="noteForm.submitted && noteForm.invalid">Ok</button>
+  </mat-dialog-actions>
+</form>
